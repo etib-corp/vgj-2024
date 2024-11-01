@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://beyn1c4kfq052"
+path="res://.godot/imported/fence_stone_straight_gate_fence_stone_straight_door.obj-4049ca8c23f598a684c25c21cbdc58a1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/fence_stone_straight_gate_fence_stone_straight_door.obj-4049ca8c23f598a684c25c21cbdc58a1.mesh"]
+
+source_file="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/buildings/neutral/fence_stone_straight_gate_fence_stone_straight_door.obj"
+dest_files=["res://.godot/imported/fence_stone_straight_gate_fence_stone_straight_door.obj-4049ca8c23f598a684c25c21cbdc58a1.mesh", "res://.godot/imported/fence_stone_straight_gate_fence_stone_straight_door.obj-4049ca8c23f598a684c25c21cbdc58a1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

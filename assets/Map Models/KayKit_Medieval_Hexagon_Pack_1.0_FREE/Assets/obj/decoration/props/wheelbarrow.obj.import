@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bleiqdthhwrmr"
+path="res://.godot/imported/wheelbarrow.obj-09759d8a12f103eb7117992b37d4015f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wheelbarrow.obj-09759d8a12f103eb7117992b37d4015f.mesh"]
+
+source_file="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/decoration/props/wheelbarrow.obj"
+dest_files=["res://.godot/imported/wheelbarrow.obj-09759d8a12f103eb7117992b37d4015f.mesh", "res://.godot/imported/wheelbarrow.obj-09759d8a12f103eb7117992b37d4015f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

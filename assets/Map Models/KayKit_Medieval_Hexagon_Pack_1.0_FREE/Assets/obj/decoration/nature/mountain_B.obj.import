@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ghlnyfwwkqup"
+path="res://.godot/imported/mountain_B.obj-36b78d7b819beaadf0d265752c9495ae.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mountain_B.obj-36b78d7b819beaadf0d265752c9495ae.mesh"]
+
+source_file="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/decoration/nature/mountain_B.obj"
+dest_files=["res://.godot/imported/mountain_B.obj-36b78d7b819beaadf0d265752c9495ae.mesh", "res://.godot/imported/mountain_B.obj-36b78d7b819beaadf0d265752c9495ae.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

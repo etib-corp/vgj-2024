@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bwgev3ddtj1xj"
+path="res://.godot/imported/building_barracks_yellow.obj-585e67654b6a9a4d4dd78f91c3c3cc05.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_barracks_yellow.obj-585e67654b6a9a4d4dd78f91c3c3cc05.mesh"]
+
+source_file="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/buildings/yellow/building_barracks_yellow.obj"
+dest_files=["res://.godot/imported/building_barracks_yellow.obj-585e67654b6a9a4d4dd78f91c3c3cc05.mesh", "res://.godot/imported/building_barracks_yellow.obj-585e67654b6a9a4d4dd78f91c3c3cc05.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

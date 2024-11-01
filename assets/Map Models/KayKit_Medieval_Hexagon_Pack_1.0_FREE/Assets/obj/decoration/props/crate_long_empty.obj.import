@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dgo5a3kgnbjhw"
+path="res://.godot/imported/crate_long_empty.obj-50d4289ba9bd33d7aca29b3dad942a35.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crate_long_empty.obj-50d4289ba9bd33d7aca29b3dad942a35.mesh"]
+
+source_file="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/decoration/props/crate_long_empty.obj"
+dest_files=["res://.godot/imported/crate_long_empty.obj-50d4289ba9bd33d7aca29b3dad942a35.mesh", "res://.godot/imported/crate_long_empty.obj-50d4289ba9bd33d7aca29b3dad942a35.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

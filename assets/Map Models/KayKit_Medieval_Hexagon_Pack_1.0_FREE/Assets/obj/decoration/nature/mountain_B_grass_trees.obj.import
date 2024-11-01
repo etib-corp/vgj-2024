@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dv1lm406052dr"
+path="res://.godot/imported/mountain_B_grass_trees.obj-b3c04eccd31570e85865565fc05758b0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mountain_B_grass_trees.obj-b3c04eccd31570e85865565fc05758b0.mesh"]
+
+source_file="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/decoration/nature/mountain_B_grass_trees.obj"
+dest_files=["res://.godot/imported/mountain_B_grass_trees.obj-b3c04eccd31570e85865565fc05758b0.mesh", "res://.godot/imported/mountain_B_grass_trees.obj-b3c04eccd31570e85865565fc05758b0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

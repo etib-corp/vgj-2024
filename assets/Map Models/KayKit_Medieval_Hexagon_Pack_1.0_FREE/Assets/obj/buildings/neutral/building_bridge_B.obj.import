@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cbsq4oht88dub"
+path="res://.godot/imported/building_bridge_B.obj-0e8a44e564a155bd902db14f57cb0fce.mesh"
+
+[deps]
+
+files=["res://.godot/imported/building_bridge_B.obj-0e8a44e564a155bd902db14f57cb0fce.mesh"]
+
+source_file="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj/buildings/neutral/building_bridge_B.obj"
+dest_files=["res://.godot/imported/building_bridge_B.obj-0e8a44e564a155bd902db14f57cb0fce.mesh", "res://.godot/imported/building_bridge_B.obj-0e8a44e564a155bd902db14f57cb0fce.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
