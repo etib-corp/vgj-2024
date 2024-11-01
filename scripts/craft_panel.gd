@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		if (recipe.capitalize().contains(field.capitalize()) or field == ""):
 			var child = Button.new()
 			child.text = recipe
-			child.pressed.connect(on_button_pressed.bind(craft_items[recipe], recipe))
+			child.button_down.connect(on_button_pressed.bind(craft_items[recipe], recipe))
 			craft_list.add_child(child)
 
 func can_craft(ressources: Dictionary, new_item: String) -> bool:

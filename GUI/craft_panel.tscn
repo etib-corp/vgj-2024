@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4h6s6cctr24b"]
+[gd_scene load_steps=4 format=3 uid="uid://4qyxo2fftdlv"]
 
 [ext_resource type="Script" path="res://scripts/craft_side.gd" id="1_8v7wd"]
 [ext_resource type="Script" path="res://scripts/craft_panel.gd" id="1_mlbx1"]
