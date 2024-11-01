@@ -1,8 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://65ggmiq7t23q"]
+[gd_scene load_steps=11 format=3 uid="uid://65ggmiq7t23q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k20wk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jm8kh"]
+
+[sub_resource type="Gradient" id="Gradient_8fy1o"]
+offsets = PackedFloat32Array(0, 0.974576, 0.991525)
+colors = PackedColorArray(0.0322426, 0.0319035, 0.525432, 1, 0, 0, 0, 1, 0.054848, 0.0547476, 0.217768, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eo3ak"]
+gradient = SubResource("Gradient_8fy1o")
+fill_from = Vector2(0.994505, 0.532967)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xp67e"]
+night_sky = SubResource("GradientTexture2D_eo3ak")
+
+[sub_resource type="Sky" id="Sky_qacn3"]
+sky_material = SubResource("PhysicalSkyMaterial_xp67e")
+
+[sub_resource type="Environment" id="Environment_1ktvn"]
+background_mode = 2
+background_energy_multiplier = 1.98
+sky = SubResource("Sky_qacn3")
+
+[sub_resource type="Animation" id="Animation_hsemf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2uoa2"]
+resource_name = "day-night"
+length = 360.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 360),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.28319, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_odaqp"]
+_data = {
+"RESET": SubResource("Animation_hsemf"),
+"day-night": SubResource("Animation_2uoa2")
+}
 
 [node name="Map" type="Node3D"]
 
@@ -14,3 +71,19 @@ shape = SubResource("BoxShape3D_k20wk")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(5.90203, 0, 0, 0, 0.197147, 0, 0, 0, 5.55142, 0, 0, 0)
 mesh = SubResource("BoxMesh_jm8kh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1ktvn")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49635, 3.81731)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, -1.21766, 4.38777, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_odaqp")
+}
+autoplay = "day-night"
