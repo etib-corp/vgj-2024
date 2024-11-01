@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4h6s6cctr24b"]
+
+[ext_resource type="Script" path="res://scripts/craft_side.gd" id="1_8v7wd"]
+[ext_resource type="Script" path="res://scripts/craft_panel.gd" id="1_mlbx1"]
+[ext_resource type="Script" path="res://scripts/inventory_side.gd" id="1_pwmjp"]
+
+[node name="CraftPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 650.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_mlbx1")
+
+[node name="MainContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="InventorySide" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("1_pwmjp")
+
+[node name="List" type="GridContainer" parent="MainContainer/InventorySide"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 4
+
+[node name="CraftSide" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_8v7wd")
+
+[node name="SearchBar" type="LineEdit" parent="MainContainer/CraftSide"]
+layout_mode = 2
+
+[node name="List" type="GridContainer" parent="MainContainer/CraftSide"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
