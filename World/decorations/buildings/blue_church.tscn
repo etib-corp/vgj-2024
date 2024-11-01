@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6pqkgas424a3"]
+
+[ext_resource type="PackedScene" uid="uid://d3vjfuitns0j0" path="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/buildings/blue/building_church_blue.gltf" id="1_teeed"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bk34g"]
+size = Vector3(1, 1.58946, 1.13379)
+
+[node name="BlueChurch" type="Node3D"]
+
+[node name="building_church_blue2" parent="." instance=ExtResource("1_teeed")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.795326, 0.00732422)
+shape = SubResource("BoxShape3D_bk34g")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://qp2qgp3ubv5y"]
+
+[ext_resource type="PackedScene" uid="uid://g602g7ri3pu3" path="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/buildings/blue/building_well_blue.gltf" id="1_7e5tk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xlb7w"]
+height = 0.544263
+radius = 0.268033
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g7vk4"]
+size = Vector3(0.551025, 0.35675, 0.767944)
+
+[node name="BlueWell" type="Node3D"]
+
+[node name="building_well_blue2" parent="." instance=ExtResource("1_7e5tk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.272067, 0)
+shape = SubResource("CylinderShape3D_xlb7w")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00231934, 0.62851, 0.0119019)
+shape = SubResource("BoxShape3D_g7vk4")

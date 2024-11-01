@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://diu6h5lpibspr"]
+
+[ext_resource type="PackedScene" uid="uid://dgr7u1sdpq17l" path="res://World/ground/basic_grass.tscn" id="1_kxlwx"]
+[ext_resource type="PackedScene" uid="uid://di2jpugoy505f" path="res://World/decorations/buildings/blue_house.tscn" id="2_41dbw"]
+
+[node name="BlueVillage" type="Node3D"]
+
+[node name="Ground" type="Node3D" parent="."]
+
+[node name="Line" type="Node3D" parent="Ground"]
+
+[node name="BasicGrass" parent="Ground/Line" instance=ExtResource("1_kxlwx")]
+
+[node name="BasicGrass2" parent="Ground/Line" instance=ExtResource("1_kxlwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="BasicGrass3" parent="Ground/Line" instance=ExtResource("1_kxlwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Line2" type="Node3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.2)
+
+[node name="BasicGrass" parent="Ground/Line2" instance=ExtResource("1_kxlwx")]
+
+[node name="BasicGrass2" parent="Ground/Line2" instance=ExtResource("1_kxlwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="BasicGrass3" parent="Ground/Line2" instance=ExtResource("1_kxlwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Line3" type="Node3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.4)
+
+[node name="BasicGrass" parent="Ground/Line3" instance=ExtResource("1_kxlwx")]
+
+[node name="BasicGrass2" parent="Ground/Line3" instance=ExtResource("1_kxlwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="BasicGrass3" parent="Ground/Line3" instance=ExtResource("1_kxlwx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="BlueHouse" parent="Buildings" instance=ExtResource("2_41dbw")]
+transform = Transform3D(3.28569, 0, -3.76885, 0, 5, 0, 3.76885, 0, 3.28569, 24.723, 0, 3.61468)
+
+[node name="BlueHouse6" parent="Buildings" instance=ExtResource("2_41dbw")]
+transform = Transform3D(4.8427, 0, 1.24429, 0, 5, 0, -1.24429, 0, 4.8427, 7.54222, 0, 4.95726)
+
+[node name="BlueHouse2" parent="Buildings" instance=ExtResource("2_41dbw")]
+transform = Transform3D(-3.13873, 0, -3.89209, 0, 5, 0, 3.89209, 0, -3.13873, 24.453, -1.90735e-06, 24.153)
+
+[node name="BlueHouse3" parent="Buildings" instance=ExtResource("2_41dbw")]
+transform = Transform3D(-4.45579, 0, 2.26847, 0, 5, 0, -2.26847, 0, -4.45579, 11.5809, -1.90735e-06, 24.919)
+
+[node name="BlueHouse4" parent="Buildings" instance=ExtResource("2_41dbw")]
+transform = Transform3D(-3.13873, 0, -3.89209, 0, 5, 0, 3.89209, 0, -3.13873, 18.7343, -1.90735e-06, 14.4937)
+
+[node name="BlueHouse5" parent="Buildings" instance=ExtResource("2_41dbw")]
+transform = Transform3D(1.9559, 0, 4.60157, 0, 5, 0, -4.60157, 0, 1.9559, 5.20716, -1.90735e-06, 14.7997)

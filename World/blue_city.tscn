@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://dadmuj7vo5yml"]
+
+[ext_resource type="PackedScene" uid="uid://dgr7u1sdpq17l" path="res://World/ground/basic_grass.tscn" id="1_1ievg"]
+[ext_resource type="PackedScene" uid="uid://di2jpugoy505f" path="res://World/decorations/buildings/blue_house.tscn" id="2_ldb1g"]
+[ext_resource type="PackedScene" uid="uid://cw2vfjf82iy4j" path="res://World/decorations/buildings/blue_market.tscn" id="3_fjgd3"]
+[ext_resource type="PackedScene" uid="uid://qp2qgp3ubv5y" path="res://World/decorations/buildings/blue_well.tscn" id="4_0qsu1"]
+[ext_resource type="PackedScene" uid="uid://b6pqkgas424a3" path="res://World/decorations/buildings/blue_church.tscn" id="5_dnxj5"]
+[ext_resource type="PackedScene" uid="uid://c7fiqtq4scqd4" path="res://World/decorations/buildings/blue_blacksmith.tscn" id="6_rdfr8"]
+
+[node name="BlueCity" type="Node3D"]
+
+[node name="Ground" type="Node3D" parent="."]
+
+[node name="Line" type="Node3D" parent="Ground"]
+
+[node name="BasicGrass" parent="Ground/Line" instance=ExtResource("1_1ievg")]
+
+[node name="BasicGrass2" parent="Ground/Line" instance=ExtResource("1_1ievg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="BasicGrass3" parent="Ground/Line" instance=ExtResource("1_1ievg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Line2" type="Node3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.2)
+
+[node name="BasicGrass" parent="Ground/Line2" instance=ExtResource("1_1ievg")]
+
+[node name="BasicGrass2" parent="Ground/Line2" instance=ExtResource("1_1ievg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="BasicGrass3" parent="Ground/Line2" instance=ExtResource("1_1ievg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Line3" type="Node3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.4)
+
+[node name="BasicGrass" parent="Ground/Line3" instance=ExtResource("1_1ievg")]
+
+[node name="BasicGrass2" parent="Ground/Line3" instance=ExtResource("1_1ievg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="BasicGrass3" parent="Ground/Line3" instance=ExtResource("1_1ievg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="BlueHouse" parent="Buildings" instance=ExtResource("2_ldb1g")]
+transform = Transform3D(3.28569, 0, -3.76885, 0, 5, 0, 3.76885, 0, 3.28569, 24.723, 0, 3.61468)
+
+[node name="BlueHouse2" parent="Buildings" instance=ExtResource("2_ldb1g")]
+transform = Transform3D(-3.13873, 0, -3.89209, 0, 5, 0, 3.89209, 0, -3.13873, 24.453, -1.90735e-06, 24.153)
+
+[node name="BlueHouse3" parent="Buildings" instance=ExtResource("2_ldb1g")]
+transform = Transform3D(-3.13873, 0, -3.89209, 0, 5, 0, 3.89209, 0, -3.13873, 16.0495, -1.90735e-06, 25.0734)
+
+[node name="BlueMarket" parent="Buildings" instance=ExtResource("3_fjgd3")]
+transform = Transform3D(-0.552748, 0, -4.96935, 0, 5, 0, 4.96935, 0, -0.552748, 24.2998, 0, 15.2246)
+
+[node name="BlueWell" parent="Buildings" instance=ExtResource("4_0qsu1")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 12.8606, 0, 15.4333)
+
+[node name="BlueChurch" parent="Buildings" instance=ExtResource("5_dnxj5")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 5.79741, 0, 4.72895)
+
+[node name="BlueBlacksmith" parent="Buildings" instance=ExtResource("6_rdfr8")]
+transform = Transform3D(-4.84753, 0, 1.22535, 0, 5, 0, -1.22535, 0, -4.84753, 4.71225, 0, 25.0085)

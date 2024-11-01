@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhbhe840a1vim"]
+[gd_scene load_steps=4 format=3 uid="uid://n2a4ypl6tpu"]
 
-[ext_resource type="PackedScene" path="res://Player.tscn" id="1_gjqsd"]
+[ext_resource type="PackedScene" uid="uid://cdw3pfn0mxmwr" path="res://Player.tscn" id="1_gjqsd"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8mdts"]
 

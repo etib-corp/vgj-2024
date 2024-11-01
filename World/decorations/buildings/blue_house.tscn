@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://di2jpugoy505f"]
+
+[ext_resource type="PackedScene" uid="uid://cck6f8wo705ac" path="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/buildings/blue/building_home_A_blue.gltf" id="1_sw000"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4y44w"]
+size = Vector3(0.815186, 0.876709, 0.852295)
+
+[node name="BlueHouse" type="Node3D"]
+
+[node name="building_home_A_blue2" parent="." instance=ExtResource("1_sw000")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00671387, 0.445435, -0.0379639)
+shape = SubResource("BoxShape3D_4y44w")
