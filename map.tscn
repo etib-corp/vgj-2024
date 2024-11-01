@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://65ggmiq7t23q"]
+[gd_scene load_steps=13 format=3 uid="uid://65ggmiq7t23q"]
+
+[ext_resource type="Script" path="res://scripts/generation.gd" id="1_i7vr8"]
+[ext_resource type="Script" path="res://scripts/character_body_3d.gd" id="2_aagwe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k20wk"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_jm8kh"]
 
 [sub_resource type="Gradient" id="Gradient_8fy1o"]
 offsets = PackedFloat32Array(0, 0.974576, 0.991525)
@@ -61,23 +62,18 @@ _data = {
 "day-night": SubResource("Animation_2uoa2")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_mm8e3"]
+
 [node name="Map" type="Node3D"]
+script = ExtResource("1_i7vr8")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_k20wk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(5.90203, 0, 0, 0, 0.197147, 0, 0, 0, 5.55142, 0, 0, 0)
-mesh = SubResource("BoxMesh_jm8kh")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1ktvn")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49635, 3.81731)
-current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, -1.21766, 4.38777, 0)
@@ -87,3 +83,15 @@ libraries = {
 "": SubResource("AnimationLibrary_odaqp")
 }
 autoplay = "day-night"
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.6246, 28.3047)
+motion_mode = 1
+script = ExtResource("2_aagwe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("SphereShape3D_mm8e3")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.884263, 0.466989, 0, -0.466989, 0.884263, 0, 19.3167, 0)
+current = true

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw2vfjf82iy4j"]
+
+[ext_resource type="PackedScene" uid="uid://dob5y0ns0lf34" path="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/buildings/blue/building_market_blue.gltf" id="1_atpvg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tp8ai"]
+size = Vector3(1.80042, 0.88678, 1.3418)
+
+[node name="BlueMarket" type="Node3D"]
+
+[node name="building_market_blue2" parent="." instance=ExtResource("1_atpvg")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00836182, 0.439545, -0.0576172)
+shape = SubResource("BoxShape3D_tp8ai")

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvkmx2llvorat"]
+
+[ext_resource type="PackedScene" uid="uid://31vhqf2rkkyb" path="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/buildings/blue/building_windmill_blue.gltf" id="1_aaia3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oqooy"]
+height = 1.39756
+radius = 0.376847
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rk2sn"]
+height = 0.178652
+radius = 0.0807686
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h12wc"]
+size = Vector3(0.148804, 0.162231, 0.345062)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pp31t"]
+size = Vector3(0.177841, 0.181763, 0.17775)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qaswo"]
+size = Vector3(0.121346, 0.112671, 0.119873)
+
+[node name="BlueWindMill" type="Node3D"]
+
+[node name="building_windmill_blue2" parent="." instance=ExtResource("1_aaia3")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.636911, 0)
+shape = SubResource("CylinderShape3D_oqooy")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.447258, 0.0826755, -0.0237925)
+shape = SubResource("CylinderShape3D_rk2sn")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.742245, 0, 0.670129, 0, 1, 0, -0.670129, 0, 0.742245, -0.396446, 0.0747681, 0.280762)
+shape = SubResource("BoxShape3D_h12wc")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.985503, 0, 0.169659, 0, 1, 0, -0.169659, 0, 0.985503, 0.471653, 0.0820923, -0.112226)
+shape = SubResource("BoxShape3D_pp31t")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.977618, 0, -0.210386, 0, 1, 0, 0.210386, 0, 0.977618, 0.443097, 0.0563757, 0.0763155)
+shape = SubResource("BoxShape3D_qaswo")

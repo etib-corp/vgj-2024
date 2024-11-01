@@ -1,0 +1,117 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgr7u1sdpq17l"]
+
+[ext_resource type="PackedScene" uid="uid://bf6orf1m3kmmd" path="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/tiles/base/hex_grass.gltf" id="1_86kha"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dm2ki"]
+size = Vector3(11.012, 1, 10.7961)
+
+[node name="BasicGrass" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="Line" type="Node3D" parent="StaticBody3D"]
+
+[node name="hex_grass2" parent="StaticBody3D/Line" instance=ExtResource("1_86kha")]
+
+[node name="hex_grass3" parent="StaticBody3D/Line" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00041, 0, 0)
+
+[node name="hex_grass4" parent="StaticBody3D/Line" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="hex_grass5" parent="StaticBody3D/Line" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="hex_grass6" parent="StaticBody3D/Line" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Line3" type="Node3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.4)
+
+[node name="hex_grass2" parent="StaticBody3D/Line3" instance=ExtResource("1_86kha")]
+
+[node name="hex_grass3" parent="StaticBody3D/Line3" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00041, 0, 0)
+
+[node name="hex_grass4" parent="StaticBody3D/Line3" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="hex_grass5" parent="StaticBody3D/Line3" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="hex_grass6" parent="StaticBody3D/Line3" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Line5" type="Node3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.8)
+
+[node name="hex_grass2" parent="StaticBody3D/Line5" instance=ExtResource("1_86kha")]
+
+[node name="hex_grass3" parent="StaticBody3D/Line5" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00041, 0, 0)
+
+[node name="hex_grass4" parent="StaticBody3D/Line5" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="hex_grass5" parent="StaticBody3D/Line5" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="hex_grass6" parent="StaticBody3D/Line5" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Line2" type="Node3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.7)
+
+[node name="hex_grass2" parent="StaticBody3D/Line2" instance=ExtResource("1_86kha")]
+
+[node name="hex_grass3" parent="StaticBody3D/Line2" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00041, 0, 0)
+
+[node name="hex_grass4" parent="StaticBody3D/Line2" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="hex_grass5" parent="StaticBody3D/Line2" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="hex_grass6" parent="StaticBody3D/Line2" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Line4" type="Node3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5.1)
+
+[node name="hex_grass2" parent="StaticBody3D/Line4" instance=ExtResource("1_86kha")]
+
+[node name="hex_grass3" parent="StaticBody3D/Line4" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00041, 0, 0)
+
+[node name="hex_grass4" parent="StaticBody3D/Line4" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="hex_grass5" parent="StaticBody3D/Line4" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="hex_grass6" parent="StaticBody3D/Line4" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="Line6" type="Node3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 8.5)
+
+[node name="hex_grass2" parent="StaticBody3D/Line6" instance=ExtResource("1_86kha")]
+
+[node name="hex_grass3" parent="StaticBody3D/Line6" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00041, 0, 0)
+
+[node name="hex_grass4" parent="StaticBody3D/Line6" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="hex_grass5" parent="StaticBody3D/Line6" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="hex_grass6" parent="StaticBody3D/Line6" instance=ExtResource("1_86kha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49918, -0.459868, 4.25708)
+shape = SubResource("BoxShape3D_dm2ki")
