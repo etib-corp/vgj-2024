@@ -1,9 +1,9 @@
 extends Node
 
 @export var GENERATION_BOUND_DISTANCE = 8
-@export var VERTICAL_AMPLITUDE = 10
+@export var VERTICAL_AMPLITUDE = 1
 
-var noise = FastNoiseLite.new()
+@export var noise : FastNoiseLite
 var generated_chunks
 
 @onready var city = preload("res://World/blue_city.tscn")
