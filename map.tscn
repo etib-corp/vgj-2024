@@ -68,6 +68,8 @@ _data = {
 "day-night": SubResource("Animation_2uoa2")
 }
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_4my6s"]
+
 [node name="Map" type="Node3D"]
 script = ExtResource("1_i7vr8")
 noise = SubResource("FastNoiseLite_rq72k")
@@ -94,3 +96,6 @@ autoplay = "day-night"
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_bibgf")]
 NSPAWN = 10
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_4my6s")

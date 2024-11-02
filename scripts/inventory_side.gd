@@ -1,9 +1,14 @@
 extends VBoxContainer
 
+func _do_nothing():
+	print("toto")
+
 @export var available_items = {
-	"Wood": 20,
-	"Stone": 5,
-	"Metal": 2
+	"Wood": { "nbr": 20, "callback" : _do_nothing},
+	"Stone": { "nbr": 5, "callback" :_do_nothing
+		},
+	"Metal":  { "nbr": 20, "callback" : _do_nothing
+		}
 }
 
 @onready var list = $List
@@ -19,6 +24,6 @@ func _process(delta: float) -> void:
 		list.remove_child(child)
 	for item: String in available_items:
 		var child = Button.new()
-
-		child.text = item + ":" + str(available_items[item])
+		child.text = item + ":" + str(available_items[item].nbr)
+		child.button_down.connect(available_items[item].callback)
 		list.add_child(child)
