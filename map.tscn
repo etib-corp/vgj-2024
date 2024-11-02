@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://65ggmiq7t23q"]
+[gd_scene load_steps=11 format=3 uid="uid://65ggmiq7t23q"]
 
 [ext_resource type="Script" path="res://scripts/generation.gd" id="1_i7vr8"]
 [ext_resource type="PackedScene" uid="uid://benxdva8ncfaa" path="res://Player.tscn" id="2_bafcn"]
-[ext_resource type="PackedScene" uid="uid://copd0k2tfwbfl" path="res://enemy.tscn" id="3_x3th6"]
+[ext_resource type="PackedScene" path="res://World/Cycle.tscn" id="3_gsqp6"]
+[ext_resource type="AudioStream" uid="uid://c6ly3v6tpcauk" path="res://Music/Main/Medieval Vol. 2 7 (Loop).mp3" id="4_odd4x"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rq72k"]
 noise_type = 3
@@ -11,56 +12,13 @@ frequency = 0.3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k20wk"]
 
-[sub_resource type="Gradient" id="Gradient_8fy1o"]
-offsets = PackedFloat32Array(0, 0.974576, 0.991525)
-colors = PackedColorArray(0.0322426, 0.0319035, 0.525432, 1, 0, 0, 0, 1, 0.054848, 0.0547476, 0.217768, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_eo3ak"]
-gradient = SubResource("Gradient_8fy1o")
-fill_from = Vector2(0.994505, 0.532967)
-
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xp67e"]
-night_sky = SubResource("GradientTexture2D_eo3ak")
-
-[sub_resource type="Sky" id="Sky_qacn3"]
-sky_material = SubResource("PhysicalSkyMaterial_xp67e")
-
-[sub_resource type="Environment" id="Environment_1ktvn"]
-background_mode = 2
-background_energy_multiplier = 1.98
-sky = SubResource("Sky_qacn3")
-
 [sub_resource type="Animation" id="Animation_hsemf"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("DirectionalLight3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(6.28319, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_2uoa2"]
 resource_name = "day-night"
 length = 360.0
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DirectionalLight3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 360),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(6.28319, 0, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_odaqp"]
 _data = {
@@ -80,12 +38,6 @@ noise = SubResource("FastNoiseLite_rq72k")
 visible = false
 shape = SubResource("BoxShape3D_k20wk")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_1ktvn")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, -4.46638e-06, 0, 4.46638e-06, 1, -1.21766, 4.38777, 0)
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_odaqp")
@@ -97,5 +49,9 @@ autoplay = "day-night"
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_4my6s")
 
-[node name="Node3D" parent="." instance=ExtResource("3_x3th6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.77504)
+[node name="Node3D" parent="." instance=ExtResource("3_gsqp6")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_odd4x")
+volume_db = -20.0
+autoplay = true
