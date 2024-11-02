@@ -18,12 +18,17 @@ enum {
 }
 
 var stat = IDLE
-
 var direction = Vector3.ZERO
 
 func _ready() -> void:
 	randomize()
 	stat = pick_random_state([IDLE, WANDER])
+	set_physics_process(false)
+	call_deferred("enemies_setup")
+
+func enemies_setup():
+	await get_tree().physics_frame
+	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
 	match stat:
@@ -47,12 +52,13 @@ func _physics_process(delta: float) -> void:
 		CHASE:
 			if _target_in_range():
 				animation.play("1H_Melee_Attack_Slice_Diagonal")
+				velocity = Vector3.ZERO
 			else:
 				animation.play("Running_B")
-			nav.target_position = player.global_position
-			direction = nav.get_next_path_position()
-			velocity = (direction - global_transform.origin).normalized() * SPEED
-			look_at(Vector3(player.global_position), Vector3.UP)
+				nav.target_position = player.global_position
+				direction = nav.get_next_path_position()
+				velocity = (direction - global_transform.origin).normalized() * SPEED
+				look_at(Vector3(player.global_position), Vector3.UP)
 			
 	velocity.y += GRAVITY * delta
 	move_and_slide()
