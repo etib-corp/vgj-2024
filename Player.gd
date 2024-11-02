@@ -11,8 +11,8 @@ var double_jump = true
 @onready var aTree = $Knight/AnimationTree
 @onready var camera = $Knight/Rig/Skeleton3D/Knight_Head/Camera3D
 
-@onready var inventory_list = $MainContainer/InventorySide/List
-@onready var inventory_content = $MainContainer/InventorySide.available_items
+@onready var inventory_list = $CraftPanel/MainContainer/InventorySide/List
+@onready var inventory_content = $CraftPanel/MainContainer/InventorySide.available_items
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
