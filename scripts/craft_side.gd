@@ -52,7 +52,7 @@ func _add_placeholder():
 	"House": {
 		"Wood": 20,
 		"callback": _add_placeholder
-	}
+	},
 }
 
 @onready var list = $List
