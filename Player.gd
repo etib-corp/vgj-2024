@@ -8,6 +8,7 @@ const mouse_sensitivity = 0.002
 
 var double_jump = true
 
+
 @onready var aTree = $Knight/AnimationTree
 @onready var camera = $Knight/Rig/Skeleton3D/Knight_Head/Camera3D
 
