@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://65ggmiq7t23q"]
+[gd_scene load_steps=12 format=3 uid="uid://65ggmiq7t23q"]
 
 [ext_resource type="Script" path="res://scripts/generation.gd" id="1_i7vr8"]
 [ext_resource type="PackedScene" uid="uid://benxdva8ncfaa" path="res://Player.tscn" id="2_bafcn"]
 [ext_resource type="PackedScene" uid="uid://bhssoboybmya8" path="res://World/Cycle.tscn" id="3_gsqp6"]
 [ext_resource type="AudioStream" uid="uid://c6ly3v6tpcauk" path="res://Music/Main/Medieval Vol. 2 7 (Loop).mp3" id="4_odd4x"]
+[ext_resource type="PackedScene" uid="uid://copd0k2tfwbfl" path="res://enemy.tscn" id="5_gycuy"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rq72k"]
 noise_type = 3
@@ -56,3 +57,6 @@ navigation_mesh = SubResource("NavigationMesh_4my6s")
 stream = ExtResource("4_odd4x")
 volume_db = -20.0
 autoplay = true
+
+[node name="Node3D2" parent="." instance=ExtResource("5_gycuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.03251)
