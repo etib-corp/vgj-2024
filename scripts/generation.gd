@@ -1,7 +1,7 @@
 extends Node
 
 @export var GENERATION_BOUND_DISTANCE = 8
-@export var VERTICAL_AMPLITUDE = 1
+@export var VERTICAL_AMPLITUDE = 0
 
 @export var noise : FastNoiseLite
 var generated_chunks
