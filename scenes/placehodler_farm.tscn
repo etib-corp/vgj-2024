@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3k4gyafdnw6e"]
+
+[ext_resource type="Script" path="res://scripts/placehodler_farm.gd" id="1_pbvb8"]
+
+[node name="placehodler_farm" type="Node3D"]
+script = ExtResource("1_pbvb8")
