@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://n2a4ypl6tpu"]
 
-[ext_resource type="PackedScene" uid="uid://cdw3pfn0mxmwr" path="res://Player.tscn" id="1_gjqsd"]
+[ext_resource type="PackedScene" uid="uid://bpk48sovdv026" path="res://Player.tscn" id="1_gjqsd"]
 [ext_resource type="PackedScene" uid="uid://copd0k2tfwbfl" path="res://enemy.tscn" id="2_q8w8m"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_f1h3h"]

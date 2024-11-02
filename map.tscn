@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://65ggmiq7t23q"]
+[gd_scene load_steps=13 format=3 uid="uid://65ggmiq7t23q"]
 
 [ext_resource type="Script" path="res://scripts/generation.gd" id="1_i7vr8"]
-[ext_resource type="Script" path="res://scripts/character_body_3d.gd" id="2_aagwe"]
+[ext_resource type="PackedScene" uid="uid://bpk48sovdv026" path="res://Player.tscn" id="2_bafcn"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rq72k"]
 noise_type = 3
@@ -67,8 +67,6 @@ _data = {
 "day-night": SubResource("Animation_2uoa2")
 }
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_mm8e3"]
-
 [node name="Map" type="Node3D"]
 script = ExtResource("1_i7vr8")
 noise = SubResource("FastNoiseLite_rq72k")
@@ -76,6 +74,7 @@ noise = SubResource("FastNoiseLite_rq72k")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+visible = false
 shape = SubResource("BoxShape3D_k20wk")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -90,14 +89,4 @@ libraries = {
 }
 autoplay = "day-night"
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.6246, 28.3047)
-motion_mode = 1
-script = ExtResource("2_aagwe")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("SphereShape3D_mm8e3")
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 351.206, 0)
-current = true
+[node name="Player" parent="." instance=ExtResource("2_bafcn")]
