@@ -4,8 +4,10 @@ extends Node3D
 
 @onready var dead_state = preload("res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/decoration/nature/tree_single_B_cut.gltf")
 @onready var hurtbox = $Hurtbox
+@onready var area = $Area
 
 var is_alive = true
+var player_in = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +22,11 @@ func _process(delta: float) -> void:
 		is_alive = false
 
 func _on_hurtbox_body_entered(body: Node3D) -> void:
-	if is_alive:
-		print("hit")
+	if life > 0 and body.visible:
 		life -= 1
+
+func _on_area_body_entered(body: Node3D) -> void:
+	player_in = true
+
+func _on_area_body_exited(body: Node3D) -> void:
+	player_in = false

@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd6riryu2bpr"]
+[gd_scene load_steps=4 format=3 uid="uid://cd6riryu2bpr"]
 
 [ext_resource type="PackedScene" uid="uid://benxdva8ncfaa" path="res://Player.tscn" id="1_gjqsd"]
 [ext_resource type="PackedScene" uid="uid://dyuvyphe2ex3" path="res://World/plain.tscn" id="2_hk4sh"]
+[ext_resource type="PackedScene" uid="uid://dispijsrfbyny" path="res://World/interactables/field_dirt.tscn" id="3_y0pu4"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Node3D" parent="." instance=ExtResource("1_gjqsd")]
 
 [node name="Plain" parent="." instance=ExtResource("2_hk4sh")]
+
+[node name="FieldDirt" parent="." instance=ExtResource("3_y0pu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95745, -0.287549, 12.1686)

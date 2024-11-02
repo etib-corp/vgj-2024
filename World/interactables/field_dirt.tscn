@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://dispijsrfbyny"]
+
+[ext_resource type="Script" path="res://scripts/field_dirt.gd" id="1_a6kva"]
+[ext_resource type="PackedScene" uid="uid://dolc4b3xsordd" path="res://assets/dirt.tscn" id="2_w0gjp"]
+[ext_resource type="PackedScene" uid="uid://cjfksphy1y6is" path="res://assets/wheat.tscn" id="3_3tqur"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxmk7"]
+size = Vector3(1.9848, 0.370972, 2.61328)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pptak"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1x7ws"]
+albedo_color = Color(0, 1, 0.147712, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_23scl"]
+size = Vector3(0.774354, 2.97253, 0.881651)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l8ymk"]
+size = Vector3(4.895, 5.23431, 6.01263)
+
+[node name="FieldDirt" type="Node3D"]
+script = ExtResource("1_a6kva")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 5
+collision_mask = 3
+
+[node name="Dirt" parent="StaticBody3D" instance=ExtResource("2_w0gjp")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00912476, 0.145532, -0.0712891)
+shape = SubResource("BoxShape3D_xxmk7")
+
+[node name="Wheat" type="Node3D" parent="."]
+
+[node name="Adult" type="Node3D" parent="Wheat"]
+
+[node name="Wheat" parent="Wheat/Adult" instance=ExtResource("3_3tqur")]
+transform = Transform3D(0.988207, -0.153124, 0, 0.153124, 0.988207, 0, 0, 0, 1, -0.504383, 2.14302, -0.670161)
+
+[node name="Wheat2" parent="Wheat/Adult" instance=ExtResource("3_3tqur")]
+transform = Transform3D(0.986297, 0.164979, 0, -0.164979, 0.986297, 0, 0, 0, 1, 0.451677, 1.90796, -0.00263757)
+
+[node name="Wheat3" parent="Wheat/Adult" instance=ExtResource("3_3tqur")]
+transform = Transform3D(0.991547, -0.129747, 0, 0.129747, 0.991547, 0, 0, 0, 1, -0.517345, 2.13586, 0.604485)
+
+[node name="Child" type="Node3D" parent="Wheat"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheat/Child"]
+transform = Transform3D(0.440194, 0, 0, 0, 0.107093, 0, 0, 0, 0.535256, -0.29893, 0.472398, 0.574435)
+mesh = SubResource("CylinderMesh_pptak")
+surface_material_override/0 = SubResource("StandardMaterial3D_1x7ws")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Wheat/Child"]
+transform = Transform3D(0.440194, 0, 0, 0, 0.107093, 0, 0, 0, 0.535256, 0.259456, 0.472398, -0.014779)
+mesh = SubResource("CylinderMesh_pptak")
+surface_material_override/0 = SubResource("StandardMaterial3D_1x7ws")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Wheat/Child"]
+transform = Transform3D(0.440194, 0, 0, 0, 0.107093, 0, 0, 0, 0.535256, -0.250654, 0.472398, -0.718068)
+mesh = SubResource("CylinderMesh_pptak")
+surface_material_override/0 = SubResource("StandardMaterial3D_1x7ws")
+
+[node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0200286, 1.93062, 0.0422199)
+shape = SubResource("BoxShape3D_23scl")
+
+[node name="Area" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01548, 2.60245, -0.0015564)
+shape = SubResource("BoxShape3D_l8ymk")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]
