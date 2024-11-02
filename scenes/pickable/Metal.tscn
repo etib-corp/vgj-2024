@@ -1,22 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://cpy51omfobnja"]
 
 [ext_resource type="Script" path="res://scenes/pickable/metal.gd" id="1_ycwuf"]
-[ext_resource type="Texture2D" uid="uid://c56gxt7nfwntn" path="res://assets/wood.png" id="2_6iyjv"]
+[ext_resource type="Texture2D" uid="uid://chj1gj6qiy73v" path="res://assets/metal.png" id="2_8n041"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3is16"]
+radius = 1.29506
+height = 2.59013
 
 [node name="Metal" type="Area3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.65151, 0)
 script = ExtResource("1_ycwuf")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
-flip_v = true
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, -2.68212, 0)
+offset = Vector2(260, 0)
 billboard = 1
-texture = ExtResource("2_6iyjv")
+texture = ExtResource("2_8n041")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0315821)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.97311, -0.0315821)
 shape = SubResource("CapsuleShape3D_3is16")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
