@@ -50,7 +50,6 @@ func create_chunk(position, model: PackedScene):
 	add_child(scene)
 
 func get_model_from_noise(noise_value):
-	print(noise_value)
 	if noise_value < 0.01 and noise_value > -0.01:
 		return city
 	elif noise_value < 0.05 and noise_value > -0.05 :
