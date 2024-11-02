@@ -1,9 +1,9 @@
 extends Node
 
 @export var GENERATION_BOUND_DISTANCE = 8
-@export var VERTICAL_AMPLITUDE = 10
+@export var VERTICAL_AMPLITUDE = 0
 
-var noise = FastNoiseLite.new()
+@export var noise : FastNoiseLite
 var generated_chunks
 
 @onready var city = preload("res://World/blue_city.tscn")
@@ -50,7 +50,6 @@ func create_chunk(position, model: PackedScene):
 	add_child(scene)
 
 func get_model_from_noise(noise_value):
-	print(noise_value)
 	if noise_value < 0.01 and noise_value > -0.01:
 		return city
 	elif noise_value < 0.05 and noise_value > -0.05 :

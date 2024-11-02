@@ -1,7 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://65ggmiq7t23q"]
+[gd_scene load_steps=15 format=3 uid="uid://65ggmiq7t23q"]
 
 [ext_resource type="Script" path="res://scripts/generation.gd" id="1_i7vr8"]
-[ext_resource type="Script" path="res://scripts/character_body_3d.gd" id="2_aagwe"]
+[ext_resource type="PackedScene" uid="uid://benxdva8ncfaa" path="res://Player.tscn" id="2_bafcn"]
+[ext_resource type="PackedScene" uid="uid://copd0k2tfwbfl" path="res://enemy.tscn" id="3_x3th6"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rq72k"]
+noise_type = 3
+seed = 14
+frequency = 0.3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k20wk"]
 
@@ -28,7 +34,7 @@ sky = SubResource("Sky_qacn3")
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("DirectionalLight3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -62,14 +68,16 @@ _data = {
 "day-night": SubResource("Animation_2uoa2")
 }
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_mm8e3"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_4my6s"]
 
 [node name="Map" type="Node3D"]
 script = ExtResource("1_i7vr8")
+noise = SubResource("FastNoiseLite_rq72k")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+visible = false
 shape = SubResource("BoxShape3D_k20wk")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -84,14 +92,10 @@ libraries = {
 }
 autoplay = "day-night"
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.6246, 28.3047)
-motion_mode = 1
-script = ExtResource("2_aagwe")
+[node name="Player" parent="." instance=ExtResource("2_bafcn")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("SphereShape3D_mm8e3")
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_4my6s")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.884263, 0.466989, 0, -0.466989, 0.884263, 0, 19.3167, 0)
-current = true
+[node name="Node3D" parent="." instance=ExtResource("3_x3th6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.77504)
