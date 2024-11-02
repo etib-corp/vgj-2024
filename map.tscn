@@ -92,6 +92,5 @@ autoplay = "day-night"
 
 [node name="Player" parent="." instance=ExtResource("2_bafcn")]
 
-[node name="Map" parent="." instance=ExtResource("3_bibgf")]
-
 [node name="EnemySpawner" parent="." instance=ExtResource("3_bibgf")]
+NSPAWN = 10
