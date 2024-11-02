@@ -13,5 +13,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if "Player" in body.name:
-		body.inventory_content["Wood"] += 1
+		body.inventory_content["Wood"]["nbr"] += 1
 		queue_free()
