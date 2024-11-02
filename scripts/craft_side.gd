@@ -1,13 +1,15 @@
 extends VBoxContainer
 
 @onready var houseplacing = preload('res://scenes/placehouse.tscn')
+@export var can_place = true
 
 func _do_nothing():
 	print("toto")
 
 func _add_placeholder():
-	var instance = houseplacing.instantiate()
-	Global.player_ref.add_child(instance)
+	if (can_place):
+		var instance = houseplacing.instantiate()
+		Global.player_ref.add_child(instance)
 
 @export var available_recipes = {
 	"Axe": {

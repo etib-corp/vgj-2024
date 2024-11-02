@@ -92,6 +92,7 @@ libraries = {
 autoplay = "day-night"
 
 [node name="Player" parent="." instance=ExtResource("2_bafcn")]
+collision_layer = 2
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_4my6s")

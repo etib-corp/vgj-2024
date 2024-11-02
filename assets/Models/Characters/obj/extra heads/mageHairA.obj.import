@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bv0j16wy363sw"
+path="res://.godot/imported/mageHairA.obj-2156851c5715202a609278c6776c1dcf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mageHairA.obj-2156851c5715202a609278c6776c1dcf.mesh"]
+
+source_file="res://assets/Models/Characters/obj/extra heads/mageHairA.obj"
+dest_files=["res://.godot/imported/mageHairA.obj-2156851c5715202a609278c6776c1dcf.mesh", "res://.godot/imported/mageHairA.obj-2156851c5715202a609278c6776c1dcf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
