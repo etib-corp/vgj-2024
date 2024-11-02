@@ -13,10 +13,10 @@ func _ready() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if Input.is_action_just_pressed("Toggle inventory") and visible == false:
+		if Input.is_action_just_pressed("Open inventory") and visible == false:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			visible = true
-		elif Input.is_action_just_pressed("Toggle inventory") and visible:
+		elif Input.is_action_just_pressed("Close current context") and visible:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			visible = false
 		

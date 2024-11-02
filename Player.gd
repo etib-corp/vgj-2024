@@ -16,31 +16,36 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		aTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("Move right", "Move left", "Move backward", "Move forward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction and not Input.is_action_pressed("Run"):
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	elif direction and Input.is_action_pressed("Run"):
-		velocity.x = direction.x * RUN_SPEED
-		velocity.z = direction.z * RUN_SPEED
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		var input_dir := Input.get_vector("Move right", "Move left", "Move backward", "Move forward")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction and not Input.is_action_pressed("Run"):
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		elif direction and Input.is_action_pressed("Run"):
+			velocity.x = direction.x * RUN_SPEED
+			velocity.z = direction.z * RUN_SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+		var aVel = Vector2(-velocity.x, velocity.z)
+		
+		aTree.set("parameters/StateMachine/BlendSpace2D/blend_position", aVel)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		
-	var aVel = Vector2(-velocity.x, velocity.z)
-		
-	aTree.set("parameters/StateMachine/BlendSpace2D/blend_position", aVel)
 
 	move_and_slide()
 
