@@ -19,8 +19,6 @@ func _input(event: InputEvent) -> void:
 		elif Input.is_action_just_pressed("Close current context") and visible:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			visible = false
-		
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
