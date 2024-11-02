@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 	if life <= 0 && is_alive == true:
 		remove_child($StaticBody3D)
 		add_child(dead_state.instantiate())
-		print("dead")
 		is_alive = false
 
 func _on_hurtbox_body_entered(body: Node3D) -> void:
