@@ -14,6 +14,10 @@ var double_jump = true
 
 @onready var inventory_list = $CraftPanel/MainContainer/InventorySide/List
 @onready var inventory_content = $CraftPanel/MainContainer/InventorySide.available_items
+@onready var audioSteamPlayer: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
+var is_audio_playing_walk = false
+var is_audio_playing_run = false
 
 func _ready() -> void:
 	Global.player_ref = self
@@ -36,12 +40,25 @@ func _physics_process(delta: float) -> void:
 		var input_dir := Input.get_vector("Move right", "Move left", "Move backward", "Move forward")
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction and not Input.is_action_pressed("Run"):
+			if !is_audio_playing_walk:
+				audioSteamPlayer.play()
+				audioSteamPlayer.pitch_scale = 1
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
+			is_audio_playing_walk = true
+			is_audio_playing_run = false
 		elif direction and Input.is_action_pressed("Run"):
+			if !is_audio_playing_run:
+				audioSteamPlayer.play()
+				audioSteamPlayer.pitch_scale = 2
 			velocity.x = direction.x * RUN_SPEED
 			velocity.z = direction.z * RUN_SPEED
+			is_audio_playing_run = true
+			is_audio_playing_walk = false 
 		else:
+			is_audio_playing_run = false
+			is_audio_playing_walk = false 
+			audioSteamPlayer.stop()
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 		
