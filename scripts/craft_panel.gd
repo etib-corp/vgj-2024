@@ -35,17 +35,21 @@ func _process(delta: float) -> void:
 
 func can_craft(ressources: Dictionary, new_item: String) -> bool:
 	for ressource: String in ressources:
-		if (inventory_content[ressource] < ressources[ressource]):
+		if (ressource == "callback"):
+			continue
+		if (inventory_content[ressource].nbr < ressources[ressource]):
 			return false
 	return true
 
 func on_button_pressed(ressources: Dictionary, new_item: String):
 	if (can_craft(ressources, new_item)):
 		for ressource: String in ressources:
-			inventory_content[ressource] -= ressources[ressource]
+			if (ressource == "callback"):
+				continue
+			inventory_content[ressource].nbr -= ressources[ressource]
 		if (inventory_content.has(new_item)):
-			inventory_content[new_item] += 1
+			inventory_content[new_item].nbr += 1
 		else:
-			inventory_content[new_item] = 1
+			inventory_content[new_item] = {"nbr" : 1, "callback": ressources.callback}
 	else:
 		print("Not enough ressources to craft " + new_item)

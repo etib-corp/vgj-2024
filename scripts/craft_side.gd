@@ -1,34 +1,46 @@
 extends VBoxContainer
 
+func _do_nothing():
+	print("toto")
+
+
 @export var available_recipes = {
 	"Axe": {
 		"Wood": 3,
-		"Stone": 3
+		"Stone": 3,
+		"callback": _do_nothing
 	},
 	"Spoon": {
-		"Wood": 1
+		"Wood": 1,
+		"callback": _do_nothing
 	},
 	"Pickaxe": {
 		"Wood": 2,
-		"Stone": 2
+		"Stone": 2,
+		"callback": _do_nothing
 	},
 	"Shovel": {
 		"Wood": 2,
-		"Stone": 1
+		"Stone": 1,
+		"callback": _do_nothing
 	},
 	"Hammer": {
 		"Wood": 2,
-		"Stone": 2
+		"Stone": 2,
+		"callback": _do_nothing
 	},
 	"Bowl": {
-		"Wood": 1
+		"Wood": 1,
+		"callback": _do_nothing
 	},
 	"Arrow": {
 		"Wood": 1,
-		"Stone": 1
+		"Stone": 1,
+		"callback": _do_nothing
 	},
 	"Boat": {
-		"Wood": 5
+		"Wood": 5,
+		"callback": _do_nothing
 	}
 }
 
