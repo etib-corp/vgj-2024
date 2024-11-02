@@ -10,11 +10,13 @@ var player:Node3D = null
 @onready var nav: NavigationAgent3D = $"NavigationAgent3D"
 @onready var animation : AnimationPlayer = $"AnimationPlayer"
 @onready var wander = $"Wander"
+@onready var hurtbox = $HurtBox
 
 enum {
 	IDLE,
 	WANDER,
-	CHASE
+	CHASE,
+	DIE
 }
 
 var stat = IDLE
@@ -31,6 +33,8 @@ func enemies_setup():
 	set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
+	if hurtbox.health <= 0:
+		stat = DIE
 	match stat:
 		IDLE:
 			animation.play("Idle")
@@ -59,6 +63,8 @@ func _physics_process(delta: float) -> void:
 				direction = nav.get_next_path_position()
 				velocity = (direction - global_transform.origin).normalized() * SPEED
 				look_at(Vector3(player.global_position), Vector3.UP)
+		DIE:
+			animation.play("Death_A")
 			
 	velocity.y += GRAVITY * delta
 	move_and_slide()
@@ -78,3 +84,6 @@ func _on_detection_player_body_entered(body: Node3D) -> void:
 func _on_detection_player_body_exited(body: Node3D) -> void:
 	stat = pick_random_state([IDLE, WANDER])
 	player = null
+
+func destroy_player() -> void:
+	queue_free()

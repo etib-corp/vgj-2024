@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://65ggmiq7t23q"]
+[gd_scene load_steps=15 format=3 uid="uid://65ggmiq7t23q"]
 
 [ext_resource type="Script" path="res://scripts/generation.gd" id="1_i7vr8"]
 [ext_resource type="PackedScene" uid="uid://bpk48sovdv026" path="res://Player.tscn" id="2_bafcn"]
+[ext_resource type="PackedScene" uid="uid://copd0k2tfwbfl" path="res://enemy.tscn" id="3_x3th6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rq72k"]
 noise_type = 3
@@ -95,3 +96,6 @@ autoplay = "day-night"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_4my6s")
+
+[node name="Node3D" parent="." instance=ExtResource("3_x3th6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.77504)
