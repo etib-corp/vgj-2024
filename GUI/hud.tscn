@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://cijgpwx40l3ng"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_4g6ny"]
+[ext_resource type="Texture2D" uid="uid://dvqatu4xspkoj" path="res://assets/apple.png" id="2_j44uv"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4g6ny")
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 86.0
+grow_horizontal = 2
+
+[node name="Header" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 445
+
+[node name="Life" type="HBoxContainer" parent="MainContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Point1" type="TextureRect" parent="MainContainer/Header/Life"]
+layout_mode = 2
+texture = ExtResource("2_j44uv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Point2" type="TextureRect" parent="MainContainer/Header/Life"]
+layout_mode = 2
+texture = ExtResource("2_j44uv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Point3" type="TextureRect" parent="MainContainer/Header/Life"]
+layout_mode = 2
+texture = ExtResource("2_j44uv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Point4" type="TextureRect" parent="MainContainer/Header/Life"]
+layout_mode = 2
+texture = ExtResource("2_j44uv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Dependency" type="HBoxContainer" parent="MainContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Performance" type="Label" parent="MainContainer/Header/Dependency"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "100%"
+horizontal_alignment = 2

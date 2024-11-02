@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://djsjx8cfcl08w"
+path="res://.godot/imported/character_knightHelmetVisor.obj-792c79a7df991cafc1365f9284a11781.mesh"
+
+[deps]
+
+files=["res://.godot/imported/character_knightHelmetVisor.obj-792c79a7df991cafc1365f9284a11781.mesh"]
+
+source_file="res://assets/Models/Characters/obj/character_knightHelmetVisor.obj"
+dest_files=["res://.godot/imported/character_knightHelmetVisor.obj-792c79a7df991cafc1365f9284a11781.mesh", "res://.godot/imported/character_knightHelmetVisor.obj-792c79a7df991cafc1365f9284a11781.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
