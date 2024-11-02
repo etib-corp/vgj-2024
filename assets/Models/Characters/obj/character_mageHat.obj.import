@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dv5uewq03mlo4"
+path="res://.godot/imported/character_mageHat.obj-ee0bc1d16f52d3728a49b075e2bc1ad3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/character_mageHat.obj-ee0bc1d16f52d3728a49b075e2bc1ad3.mesh"]
+
+source_file="res://assets/Models/Characters/obj/character_mageHat.obj"
+dest_files=["res://.godot/imported/character_mageHat.obj-ee0bc1d16f52d3728a49b075e2bc1ad3.mesh", "res://.godot/imported/character_mageHat.obj-ee0bc1d16f52d3728a49b075e2bc1ad3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

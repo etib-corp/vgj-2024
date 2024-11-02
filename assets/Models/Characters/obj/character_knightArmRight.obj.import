@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ithbjheing16"
+path="res://.godot/imported/character_knightArmRight.obj-d5f3a48f05989b66147c74c79616c028.mesh"
+
+[deps]
+
+files=["res://.godot/imported/character_knightArmRight.obj-d5f3a48f05989b66147c74c79616c028.mesh"]
+
+source_file="res://assets/Models/Characters/obj/character_knightArmRight.obj"
+dest_files=["res://.godot/imported/character_knightArmRight.obj-d5f3a48f05989b66147c74c79616c028.mesh", "res://.godot/imported/character_knightArmRight.obj-d5f3a48f05989b66147c74c79616c028.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/generation.gd" id="1_i7vr8"]
 [ext_resource type="PackedScene" uid="uid://benxdva8ncfaa" path="res://Player.tscn" id="2_bafcn"]
-[ext_resource type="PackedScene" path="res://World/Cycle.tscn" id="3_gsqp6"]
+[ext_resource type="PackedScene" uid="uid://bhssoboybmya8" path="res://World/Cycle.tscn" id="3_gsqp6"]
 [ext_resource type="AudioStream" uid="uid://c6ly3v6tpcauk" path="res://Music/Main/Medieval Vol. 2 7 (Loop).mp3" id="4_odd4x"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rq72k"]
@@ -45,6 +45,7 @@ libraries = {
 autoplay = "day-night"
 
 [node name="Player" parent="." instance=ExtResource("2_bafcn")]
+collision_layer = 2
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_4my6s")
