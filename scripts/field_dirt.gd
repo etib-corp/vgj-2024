@@ -10,6 +10,9 @@ var elapsed_time = 0
 
 var player_in = false
 
+func _disable_collision():
+	$StaticBody3D/CollisionShape3D.disabled = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -30,16 +33,16 @@ func _process(delta: float) -> void:
 	if growing_state >= growing_time:
 		adult_wheat.visible = true
 
-func _on_hurtbox_body_entered(body: Node3D) -> void:
-	if body.visible == false:
-		return
-	if growing_state == -1:
-		growing_state = 0
-	if growing_state >= growing_time:
-		growing_state = -1
-
 func _on_area_body_entered(body: Node3D) -> void:
 	player_in = true
 
 func _on_area_body_exited(body: Node3D) -> void:
 	player_in = false
+
+func _on_hurtbox_area_entered(area: Area3D) -> void:
+	if area.visible == false:
+		return
+	if growing_state == -1:
+		growing_state = 0
+	if growing_state >= growing_time:
+		growing_state = -1

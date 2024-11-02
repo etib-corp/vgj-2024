@@ -4,12 +4,12 @@ extends Node3D
 var fiels_preview: Node3D = null
 @onready var raycast :RayCast3D = Global.player_ref.get_node("Knight/Rig/Skeleton3D/Knight_Head/Camera3D/RayCast3D")
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	fiels_preview = fiels_dirt.instantiate()
 	add_child(fiels_preview)
 	fiels_preview.visible = false
+	fiels_preview._disable_collision()
 
 func _process(delta: float) -> void:
 	update_house_preview_position()

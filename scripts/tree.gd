@@ -21,12 +21,14 @@ func _process(delta: float) -> void:
 		add_child(dead_state.instantiate())
 		is_alive = false
 
-func _on_hurtbox_body_entered(body: Node3D) -> void:
-	if life > 0 and body.visible:
-		life -= 1
+
 
 func _on_area_body_entered(body: Node3D) -> void:
 	player_in = true
 
 func _on_area_body_exited(body: Node3D) -> void:
 	player_in = false
+
+func _on_hurtbox_area_entered(area: Area3D) -> void:
+	if life > 0 and area.visible:
+		life -= 1

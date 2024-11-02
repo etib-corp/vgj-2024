@@ -8,10 +8,13 @@ const mouse_sensitivity = 0.002
 
 var double_jump = true
 
+var deadScene = preload("res://DeathScreen.tscn")
+
 
 @onready var aTree = $Knight/AnimationTree
 @onready var animations = $Knight/AnimationPlayer
 @onready var weapon_collision = $"Knight/Rig/Skeleton3D/2H_Sword/2H_Sword/HitBox"
+@onready var hurtbox = $HurtBox
 
 
 @onready var camera = $Knight/Rig/Skeleton3D/Knight_Head/Camera3D
@@ -29,6 +32,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	if hurtbox.health <= 0:
+		aTree.set("parameters/conditions/is_dead", true)
+		return
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -103,3 +110,8 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		camera.rotate_x(event.relative.y * mouse_sensitivity)
 		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+
+func player_dead() -> void:
+	queue_free()
+	get_tree().change_scene_to_packed(deadScene)
+	
