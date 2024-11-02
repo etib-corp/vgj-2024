@@ -1,5 +1,6 @@
 ~ start
 
-Test: Hello
+if global.given_wood == false
+	RAPH: [[Hi|Hello]]... I need you to do something for me
 
 => END
