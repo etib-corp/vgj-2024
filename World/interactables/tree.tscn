@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu8521hh637yu"]
+
+[ext_resource type="Script" path="res://scripts/tree.gd" id="1_4vclb"]
+[ext_resource type="PackedScene" uid="uid://dw4155yn7ukhn" path="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/decoration/nature/tree_single_B.gltf" id="2_u1cpc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6nkse"]
+size = Vector3(0.658264, 1.19507, 0.692017)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pi8bn"]
+size = Vector3(1.24871, 1.22122, 1.24428)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h5ad6"]
+size = Vector3(0.542603, 1.11029, 0.612061)
+
+[node name="Tree" type="Node3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+script = ExtResource("1_4vclb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 5
+collision_mask = 3
+
+[node name="tree_single_B2" parent="StaticBody3D" instance=ExtResource("2_u1cpc")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00442505, 0.507202, 0.00469971)
+shape = SubResource("BoxShape3D_6nkse")
+
+[node name="Area" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000410056, 0.517441, -0.00602536)
+shape = SubResource("BoxShape3D_pi8bn")
+
+[node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402222, 0.559174, 0.00866699)
+shape = SubResource("BoxShape3D_h5ad6")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

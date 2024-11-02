@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjfksphy1y6is"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_38y8d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjrij"]
+albedo_color = Color(0, 1, 0.340259, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v3xvt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f2i5o"]
+albedo_color = Color(0.745098, 1, 0.317647, 1)
+
+[node name="Wheat" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.496584, 0, 0, 0, 2.18784, 0, 0, 0, 0.510963, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_38y8d")
+surface_material_override/0 = SubResource("StandardMaterial3D_kjrij")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.215685, -0.0214905, -0.761956, -0.172713, -0.00118745, -0.998426, 0.0452006, 0.0980092, -0.179171, 0.415448, 1.78098, 0.0580624)
+mesh = SubResource("CylinderMesh_v3xvt")
+surface_material_override/0 = SubResource("StandardMaterial3D_f2i5o")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.215685, -0.0214905, -0.761956, -0.172713, -0.00118745, -0.998426, 0.0452006, 0.0980092, -0.179171, 0.551906, 1.14835, 0.0803187)
+mesh = SubResource("CylinderMesh_v3xvt")
+surface_material_override/0 = SubResource("StandardMaterial3D_f2i5o")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.159499, -0.0214905, 1.00667, 0.227002, -0.00118745, -0.742505, 0.0377235, 0.0980093, 0.211737, -0.479938, 1.48946, -0.1418)
+mesh = SubResource("CylinderMesh_v3xvt")
+surface_material_override/0 = SubResource("StandardMaterial3D_f2i5o")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.159499, -0.0214905, 1.00667, 0.227002, -0.00118745, -0.742505, 0.0377235, 0.0980093, 0.211737, -0.453097, 0.750636, -0.144867)
+mesh = SubResource("CylinderMesh_v3xvt")
+surface_material_override/0 = SubResource("StandardMaterial3D_f2i5o")
