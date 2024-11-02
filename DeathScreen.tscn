@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://de8fabvp1p0xl"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 119.0
+offset_top = 200.0
+offset_right = 308.0
+offset_bottom = 265.0
+scale = Vector2(4, 4)
+text = "You are dead"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 444.0
+offset_top = 362.0
+offset_right = 633.0
+offset_bottom = 427.0
+scale = Vector2(4, 4)
+text = "Try again"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+offset_left = 687.0
+offset_top = 526.0
+offset_right = 876.0
+offset_bottom = 591.0
+scale = Vector2(4, 4)
+text = "And get better"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+offset_left = 1089.0
+offset_top = 656.0
+offset_right = 1278.0
+offset_bottom = 721.0
+scale = Vector2(4, 4)
+text = "but don't become addict"

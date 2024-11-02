@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dg80kevrslgs2"]
+[gd_scene load_steps=40 format=3 uid="uid://cjmdlbwi8p0x3"]
 
 [ext_resource type="Script" path="res://scripts/in_house.gd" id="1_5677g"]
 [ext_resource type="PackedScene" uid="uid://b3adqce25wqd7" path="res://assets/Models/gltf/wallDecorationA.gltf.glb" id="2_go1ld"]
@@ -63,9 +63,6 @@ radius = 0.40218
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2vvex"]
 radius = 1.91641
 height = 5.12363
-
-[sub_resource type="Environment" id="Environment_k806p"]
-background_mode = 2
 
 [node name="InHouse" type="Node3D"]
 script = ExtResource("1_5677g")
@@ -258,9 +255,6 @@ shape = SubResource("CapsuleShape3D_2vvex")
 
 [node name="tileBrickA_large_gltf" parent="." instance=ExtResource("27_awddq")]
 transform = Transform3D(5.5, 0, 0, 0, -1, -8.28212e-07, 0, 1.50996e-07, -5.485, 11.0668, 5.74527, -1.21418)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_k806p")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]

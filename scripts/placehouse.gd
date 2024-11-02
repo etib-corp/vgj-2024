@@ -42,8 +42,8 @@ func _add_House_in_World():
 	new_inhouse.global_position = new_house.global_position
 	new_inhouse.global_position.y -= 100
 	var back = new_house.global_position
-	back.y += 10
-	back.x += 10
+	back.y += 5
+	back.x += 5
 	new_inhouse.set_return(back)
 	new_house.set_pos_inhouse(new_inhouse.global_position)
 
