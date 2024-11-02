@@ -15,6 +15,7 @@ var double_jump = true
 @onready var inventory_content = $CraftPanel/MainContainer/InventorySide.available_items
 
 func _ready() -> void:
+	Global.player_ref = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:

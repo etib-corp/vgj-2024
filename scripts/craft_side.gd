@@ -1,8 +1,13 @@
 extends VBoxContainer
 
+@onready var houseplacing = preload('res://scenes/placehouse.tscn')
+
 func _do_nothing():
 	print("toto")
 
+func _add_placeholder():
+	var instance = houseplacing.instantiate()
+	Global.player_ref.add_child(instance)
 
 @export var available_recipes = {
 	"Axe": {
@@ -41,6 +46,10 @@ func _do_nothing():
 	"Boat": {
 		"Wood": 5,
 		"callback": _do_nothing
+	},
+	"House": {
+		"Wood": 20,
+		"callback": _add_placeholder
 	}
 }
 
