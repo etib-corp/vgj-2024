@@ -2,5 +2,8 @@
 
 if global.given_wood == false
 	RAPH: [[Hi|Hello]]... I need you to do something for me
+	- Who are you ?
+		RAPH: I'm everything
+	- Hum ok fine  
 
 => END
