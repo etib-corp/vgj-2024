@@ -1,6 +1,6 @@
 ~ start
 
-if global.wood == false:
+if not global.first_step and global.update_first_step():
 	RAPH: [[Hi|Hello]]... I need something from you.
 	- What do you need?
 		RAPH: Bring me some wood. Just a few logs should do.
@@ -11,7 +11,7 @@ if global.wood == false:
 			- I don’t think so.
 				RAPH: Suit yourself. But I’ll be here if you change your mind. => END
 
-if global.wood == true and global.stone == false:
+if  not global.second_step and global.update_second_step():
 	RAPH: Good, you’ve brought the wood. Now, I need stone.
 	- Why do you need stone?
 		RAPH: For reasons you wouldn’t understand... yet.
@@ -20,7 +20,7 @@ if global.wood == true and global.stone == false:
 	- No, I’m not interested.
 		RAPH: Such a shame... but I’ll wait. => END
 
-if global.stone == true and global.metal == false:
+if not global.thrid_step and global.update_third_step():
 	RAPH: Excellent. Now that I have wood and stone, I need something more. Find me some metal.
 	- Where can I find metal?
 		RAPH: Search the caves or abandoned places. It’ll all make sense soon.
@@ -30,7 +30,7 @@ if global.stone == true and global.metal == false:
 	- What are you going to do with all this?
 		RAPH: All in good time. Just find the metal. => END
 
-if global.metal == true and global.wheat == false:
+if not global.fourth_step and global.update_fourth_step():
 	RAPH: You’ve done well. But I need one last thing… wheat.
 	- Wheat? You’re serious?
 		RAPH: Deadly serious. Bring it to me.
@@ -39,14 +39,14 @@ if global.metal == true and global.wheat == false:
 	- Fine, I’ll find it.
 		RAPH: Excellent. I knew you had potential. => END
 
-if global.wheat == true and global.bread == false:
+if not global.fifth_step and global.update_fifth_step():
 	RAPH: Perfect. Now, use that wheat to make bread. Then bring it to me.
 	- Bread? What is this all for?
 		RAPH: You’ll see soon enough.
 	- This is getting strange, but I’ll do it.
 		RAPH: Good. Bring me the bread when it’s ready. => END
 
-if global.bread == true:
+if global.fifth_step:
 	RAPH: You’ve done well… very well. Everything is in place.
 	RAPH: Now... are you ready to understand why I needed all these things?
 	- Yes, tell me.

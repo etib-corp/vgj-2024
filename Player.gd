@@ -13,13 +13,14 @@ const mouse_sensitivity = 0.002
 
 @onready var camera = $Knight/Rig/Skeleton3D/Knight_Head/Camera3D
 @onready var inventory_list = $CraftPanel/MainContainer/InventorySide/List
-@onready var inventory_content = $CraftPanel/MainContainer/InventorySide.available_items
+@onready var inventory_content = global.available_items
 @onready var audioSteamPlayer: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var is_audio_playing_walk = false
 var is_audio_playing_run = false
 
 var in_statue = false
+var is_first_statue = false
 
 func _ready() -> void:
 	Global.player_ref = self
@@ -27,7 +28,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if in_statue:
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept") and not is_first_statue:
+			is_first_statue = true
 			DialogueManager.show_example_dialogue_balloon(load("res://dialog/Test_dialogue.dialogue"), "start")
 	
 	if not is_on_floor():
@@ -96,7 +98,6 @@ func _physics_process(delta: float) -> void:
 		aTree.set("parameters/conditions/is_moving", true)
 		aTree.set("parameters/conditions/is_idling", false)
 
-
 	aTree.set("parameters/blend_position/blend_position", aVel)
 
 	move_and_slide()
@@ -114,3 +115,4 @@ func _on_detection_area_area_entered(area: Area3D) -> void:
 func _on_detection_area_area_exited(area: Area3D) -> void:
 	if "Statue" in area.name:
 		in_statue = false
+		is_first_statue = false
