@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddhij1063uas2"]
+
+[ext_resource type="Script" path="res://scenes/pickable/rock.gd" id="1_8vn13"]
+[ext_resource type="PackedScene" uid="uid://e1aa6qlhni0d" path="res://assets/Map Models/KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf/decoration/nature/rock_single_C.gltf" id="1_ibjrt"]
+[ext_resource type="PackedScene" uid="uid://b5ha7m8wk0utt" path="res://scenes/pickable/Stone.tscn" id="2_4aoo5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ol566"]
+size = Vector3(0.226303, 0.200287, 0.194336)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vi7yx"]
+size = Vector3(0.253296, 0.64801, 0.28125)
+
+[node name="Rock" type="Node3D"]
+script = ExtResource("1_8vn13")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00972748, 0.0905609, -0.0161133)
+shape = SubResource("BoxShape3D_ol566")
+
+[node name="rock_single_C2" parent="StaticBody3D" instance=ExtResource("1_ibjrt")]
+
+[node name="Hurtbox" type="Area3D" parent="."]
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0271606, 0.319672, -0.00585938)
+shape = SubResource("BoxShape3D_vi7yx")
+
+[node name="Stone" parent="." instance=ExtResource("2_4aoo5")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.292387, 0)
+visible = false
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
