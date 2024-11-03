@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://65ggmiq7t23q"]
+[gd_scene load_steps=15 format=3 uid="uid://65ggmiq7t23q"]
 
 [ext_resource type="Script" path="res://scripts/generation.gd" id="1_i7vr8"]
 [ext_resource type="PackedScene" uid="uid://benxdva8ncfaa" path="res://Player.tscn" id="2_bafcn"]
@@ -6,8 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c6ly3v6tpcauk" path="res://Music/Main/Medieval Vol. 2 7 (Loop).mp3" id="4_odd4x"]
 [ext_resource type="PackedScene" uid="uid://c24yo2ct3gcl" path="res://enemy.tscn" id="5_gycuy"]
 [ext_resource type="Script" path="res://scripts/sub_viewport_container.gd" id="6_vb0y8"]
-[ext_resource type="PackedScene" path="res://scenes/statue.tscn" id="6_vk72i"]
-[ext_resource type="PackedScene" uid="uid://tw0g07f0wn5j" path="res://scenes/enemy_spawner.tscn" id="8_hs343"]
+[ext_resource type="PackedScene" uid="uid://yclxlbtxofu" path="res://scenes/statue.tscn" id="6_vk72i"]
 [ext_resource type="PackedScene" uid="uid://cijgpwx40l3ng" path="res://GUI/hud.tscn" id="8_qis13"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rq72k"]
@@ -90,7 +89,19 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, -30.6115)
 
 [node name="HUD" parent="." instance=ExtResource("8_qis13")]
 
-[node name="EnemySpawner" parent="." instance=ExtResource("8_hs343")]
-NSPAWN = 10
-maxX = 20
-maxZ = 20
+[node name="Node3D4" type="Node3D" parent="."]
+
+[node name="Enemy" parent="Node3D4" instance=ExtResource("5_gycuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 100, 120)
+
+[node name="Enemy2" parent="Node3D4" instance=ExtResource("5_gycuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 100, 130)
+
+[node name="Enemy3" parent="Node3D4" instance=ExtResource("5_gycuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130, 100, -140)
+
+[node name="Enemy4" parent="Node3D4" instance=ExtResource("5_gycuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 100, 50)
+
+[node name="Enemy5" parent="Node3D4" instance=ExtResource("5_gycuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 100, -90)
