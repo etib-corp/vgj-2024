@@ -12,6 +12,13 @@ func _give_player_life(number: int):
 			Global.player_ref.hurtbox.health = 4
 		else:
 			Global.player_ref.hurtbox.health += number
+			
+
+func _consume_bread():
+	if Global.player_ref.inventory_content["Bread"]["nbr"] > 0:
+		_give_player_life(1)
+		Global.player_ref.inventory_content["Bread"]["nbr"] -= 1
+
 
 func _add_placeholder():
 	if (can_place):
@@ -62,7 +69,7 @@ func _add_placeholder():
 	},
 	"Bread": {
 		"Wheat": 3,
-		"callback": _do_nothing
+		"callback": _consume_bread
 	}
 }
 

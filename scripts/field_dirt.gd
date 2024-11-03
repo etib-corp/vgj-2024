@@ -6,9 +6,12 @@ extends Node3D
 @onready var child_wheat = $Wheat/Child
 @onready var adult_wheat = $Wheat/Adult
 
+@onready var pickable = $PickableWheat
+
 var elapsed_time = 0
 
 var player_in = false
+var can_recolt = false
 
 func _disable_collision():
 	$StaticBody3D/CollisionShape3D.disabled = true
@@ -28,10 +31,14 @@ func _process(delta: float) -> void:
 	if growing_state == -1:
 		child_wheat.visible = false
 		adult_wheat.visible = false
+	if growing_state == -1 and adult_wheat.visible == false and can_recolt == true:
+		pickable.visible = true
+		can_recolt = false
 	if growing_state >= 0:
 		child_wheat.visible = true
 	if growing_state >= growing_time:
 		adult_wheat.visible = true
+		can_recolt = true
 
 func _on_area_body_entered(body: Node3D) -> void:
 	player_in = true
