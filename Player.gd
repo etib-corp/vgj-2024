@@ -16,7 +16,6 @@ var deadScene = preload("res://DeathScreen.tscn")
 @onready var weapon_collision = $"Knight/Rig/Skeleton3D/2H_Sword/2H_Sword/HitBox"
 @onready var hurtbox = $HurtBox
 
-
 @onready var camera = $Knight/Rig/Skeleton3D/Knight_Head/Camera3D
 @onready var inventory_list = $CraftPanel/MainContainer/InventorySide/List
 @onready var inventory_content = $CraftPanel/MainContainer/InventorySide.available_items

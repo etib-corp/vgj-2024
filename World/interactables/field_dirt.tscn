@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dispijsrfbyny"]
+[gd_scene load_steps=10 format=3 uid="uid://dispijsrfbyny"]
 
 [ext_resource type="Script" path="res://scripts/field_dirt.gd" id="1_a6kva"]
 [ext_resource type="PackedScene" uid="uid://dolc4b3xsordd" path="res://assets/dirt.tscn" id="2_w0gjp"]
 [ext_resource type="PackedScene" uid="uid://cjfksphy1y6is" path="res://assets/wheat.tscn" id="3_3tqur"]
+[ext_resource type="PackedScene" uid="uid://cj57bkp2mmbq4" path="res://scenes/pickable/wheat.tscn" id="4_nvw1b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xxmk7"]
 size = Vector3(1.9848, 0.370972, 2.61328)
@@ -76,6 +77,9 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01548, 2.60245, -0.0015564)
 shape = SubResource("BoxShape3D_l8ymk")
+
+[node name="PickableWheat" parent="." instance=ExtResource("4_nvw1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.79264, 0)
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

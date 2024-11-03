@@ -6,6 +6,13 @@ extends VBoxContainer
 func _do_nothing():
 	print("toto")
 
+func _give_player_life(number: int):
+	if Global.player_ref.hurtbox.health < 4:
+		if Global.player_ref.hurtbox.health + number > 4:
+			Global.player_ref.hurtbox.health = 4
+		else:
+			Global.player_ref.hurtbox.health += number
+
 func _add_placeholder():
 	if (can_place):
 		var instance = houseplacing.instantiate()
@@ -53,6 +60,10 @@ func _add_placeholder():
 		"Wood": 20,
 		"callback": _add_placeholder
 	},
+	"Bread": {
+		"Wheat": 3,
+		"callback": _do_nothing
+	}
 }
 
 @onready var list = $List

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj57bkp2mmbq4"]
+
+[ext_resource type="Script" path="res://scripts/wheat.gd" id="1_27wb4"]
+[ext_resource type="Texture2D" uid="uid://c80axmia5rlrv" path="res://assets/wheat.png" id="1_xcxjw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f140m"]
+radius = 0.240781
+height = 1.18114
+
+[node name="Wheat" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_27wb4")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("1_xcxjw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_f140m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
