@@ -134,7 +134,6 @@ func _on_mutated(_mutation: Dictionary) -> void:
 			balloon.hide()
 	)
 
-
 func _on_balloon_gui_input(event: InputEvent) -> void:
 	# See if we need to skip typing of the dialogue
 	if dialogue_label.is_typing:
