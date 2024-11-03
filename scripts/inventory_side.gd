@@ -23,6 +23,7 @@ func _add_farm():
 		},
 	"Farm": {"nbr" : -1, "callback": _add_farm},
 	"Wheat": {"nbr": 0, "callback": _do_nothing},
+	"House": {"nbr": 0, "callback": _do_nothing}
 }
 
 @onready var list = $List
