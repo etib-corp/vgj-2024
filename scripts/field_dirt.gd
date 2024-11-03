@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 		adult_wheat.visible = false
 	if growing_state == -1 and adult_wheat.visible == false and can_recolt == true:
 		pickable.visible = true
+		pickable._enable_collision()
 		can_recolt = false
 	if growing_state >= 0:
 		child_wheat.visible = true

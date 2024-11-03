@@ -3,22 +3,21 @@
 [ext_resource type="Script" path="res://scenes/pickable/stone.gd" id="1_1qvnt"]
 [ext_resource type="Texture2D" uid="uid://b3rec4p1xmeip" path="res://assets/stone.png" id="2_dlwo6"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3is16"]
-radius = 1.38671
-height = 2.77342
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yeng5"]
 
 [node name="Stone" type="Area3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.65151, 0)
+collision_mask = 2
 script = ExtResource("1_1qvnt")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-0.39, -5.88884e-08, 0, 5.88884e-08, -0.39, 0, 0, 0, 0.39, 0, 0, 0)
 offset = Vector2(0, 370)
 billboard = 1
 texture = ExtResource("2_dlwo6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0315821)
-shape = SubResource("CapsuleShape3D_3is16")
+shape = SubResource("CapsuleShape3D_yeng5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
