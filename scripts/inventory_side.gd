@@ -35,7 +35,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for child in list.get_children():
 		list.remove_child(child)
-	for item: String in available_items:
+	for item: String in global.available_items:
 		var child = Button.new()
 		if (available_items[item].nbr == -1):
 			child.text = item + ":" + "infinite"

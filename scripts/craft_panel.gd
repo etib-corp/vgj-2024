@@ -1,7 +1,7 @@
 extends Control
 
 @onready var inventory_list = $MainContainer/InventorySide/List
-@onready var inventory_content = $MainContainer/InventorySide.available_items
+@onready var inventory_content = global.available_items
 
 @onready var craft_items = $MainContainer/CraftSide.available_recipes
 @onready var craft_list = $MainContainer/CraftSide/List

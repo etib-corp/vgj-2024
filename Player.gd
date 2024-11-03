@@ -17,7 +17,7 @@ var deadScene = preload("res://DeathScreen.tscn")
 
 @onready var camera = $Knight/Rig/Skeleton3D/Knight_Head/Camera3D
 @onready var inventory_list = $CraftPanel/MainContainer/InventorySide/List
-@onready var inventory_content = $CraftPanel/MainContainer/InventorySide.available_items
+@onready var inventory_content = global.available_items
 @onready var footAudio: AudioStreamPlayer3D = $footAudio
 @onready var sword_sound: AudioStreamPlayer3D = $SwordAttack
 
@@ -25,14 +25,22 @@ var is_audio_playing_walk = false
 var is_audio_playing_run = false
 var is_audio_sword = false
 
+var in_statue = false
+var is_first_statue = false
+
 func _ready() -> void:
 	Global.player_ref = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
+	if in_statue:
+		if Input.is_action_just_pressed("ui_accept") and not is_first_statue:
+			is_first_statue = true
+			DialogueManager.show_example_dialogue_balloon(load("res://dialog/Test_dialogue.dialogue"), "start")
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		
+
 	if hurtbox.health <= 0:
 		aTree.set("parameters/conditions/is_dead", true)
 		return
@@ -104,7 +112,6 @@ func _physics_process(delta: float) -> void:
 		aTree.set("parameters/conditions/is_moving", true)
 		aTree.set("parameters/conditions/is_idling", false)
 
-
 	aTree.set("parameters/blend_position/blend_position", aVel)
 
 	move_and_slide()
@@ -118,4 +125,12 @@ func _input(event: InputEvent) -> void:
 func player_dead() -> void:
 	queue_free()
 	get_tree().change_scene_to_packed(deadScene)
-	
+
+func _on_detection_area_area_entered(area: Area3D) -> void:
+	if "Statue" in area.name:
+		in_statue = true
+
+func _on_detection_area_area_exited(area: Area3D) -> void:
+	if "Statue" in area.name:
+		in_statue = false
+		is_first_statue = false
