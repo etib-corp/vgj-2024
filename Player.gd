@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 const SPEED = 5.0
 const RUN_SPEED = SPEED * 2
 const JUMP_VELOCITY = 4.5
@@ -19,10 +18,12 @@ var deadScene = preload("res://DeathScreen.tscn")
 @onready var camera = $Knight/Rig/Skeleton3D/Knight_Head/Camera3D
 @onready var inventory_list = $CraftPanel/MainContainer/InventorySide/List
 @onready var inventory_content = $CraftPanel/MainContainer/InventorySide.available_items
-@onready var audioSteamPlayer: AudioStreamPlayer3D = $AudioStreamPlayer3D
+@onready var footAudio: AudioStreamPlayer3D = $footAudio
+@onready var sword_sound: AudioStreamPlayer3D = $SwordAttack
 
 var is_audio_playing_walk = false
 var is_audio_playing_run = false
+var is_audio_sword = false
 
 func _ready() -> void:
 	Global.player_ref = self
@@ -46,11 +47,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		weapon_collision.visible = false
 	if Input.is_action_just_pressed("left_mouse_button"):
+		if (!is_audio_sword):
+			sword_sound.play()
+		is_audio_sword = true
 		aTree.set("parameters/conditions/is_attacking", true)
 		aTree.set("parameters/conditions/is_moving", false)
 		aTree.set("parameters/conditions/is_idling", false)
 		return
 	else:
+		is_audio_sword = false
 		aTree.set("parameters/conditions/is_attacking", false)
 
 
@@ -61,16 +66,16 @@ func _physics_process(delta: float) -> void:
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction and not Input.is_action_pressed("Run"):
 			if !is_audio_playing_walk:
-				audioSteamPlayer.play()
-				audioSteamPlayer.pitch_scale = 1
+				footAudio.play()
+				footAudio.pitch_scale = 1
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
 			is_audio_playing_walk = true
 			is_audio_playing_run = false
 		elif direction and Input.is_action_pressed("Run"):
 			if !is_audio_playing_run:
-				audioSteamPlayer.play()
-				audioSteamPlayer.pitch_scale = 2
+				footAudio.play()
+				footAudio.pitch_scale = 2
 			velocity.x = direction.x * RUN_SPEED
 			velocity.z = direction.z * RUN_SPEED
 			is_audio_playing_run = true
@@ -78,7 +83,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			is_audio_playing_run = false
 			is_audio_playing_walk = false
-			audioSteamPlayer.stop()
+			footAudio.stop()
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 

@@ -45,9 +45,8 @@ func _physics_process(delta: float) -> void:
 				wander.start_timer_wander(randi_range(5, 10))
 		WANDER:
 			animation.play("Walking_B")
-			nav.target_position = wander.target_position
-			direction = nav.get_next_path_position()
-			velocity = (direction - global_transform.origin).normalized() * SPEED
+			direction = global_transform.origin.direction_to(wander.target_position)
+			velocity = velocity.move_toward(direction * SPEED, accel * delta)
 			look_at(wander.target_position, Vector3.UP)
 			
 			if global_transform.origin.distance_to(wander.target_position) <= 5:
@@ -59,9 +58,8 @@ func _physics_process(delta: float) -> void:
 				velocity = Vector3.ZERO
 			else:
 				animation.play("Running_B")
-				nav.target_position = player.global_position
-				direction = nav.get_next_path_position()
-				velocity = (direction - global_transform.origin).normalized() * SPEED
+				var direction = global_transform.origin.direction_to(player.get_global_transform().origin)
+				velocity = velocity.move_toward(direction * SPEED, accel * delta)
 				look_at(Vector3(player.global_position), Vector3.UP)
 		DIE:
 			animation.play("Death_A")

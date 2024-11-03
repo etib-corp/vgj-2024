@@ -47,7 +47,7 @@ func _process(delta):
 func create_chunk(position, model: PackedScene):
 	var scene = model.instantiate()
 	scene.global_position = position
-	add_child(scene)
+	$NavigationRegion3D.add_child(scene)
 
 func get_model_from_noise(noise_value):
 	if noise_value < 0.01 and noise_value > -0.01:
