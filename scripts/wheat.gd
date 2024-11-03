@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if "Player" in body.name:
-		body.inventory_content["Wheat"]["nbr"] += 1
+		global.available_items["Wheat"]["nbr"] += 1
 		visible = false
 		_disable_collision()
 

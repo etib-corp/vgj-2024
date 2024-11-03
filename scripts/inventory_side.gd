@@ -1,30 +1,9 @@
 extends VBoxContainer
 
 @onready var placeholder_farm = preload("res://scenes/placehodler_farm.tscn")
-@onready var can_place = $"../CraftSide".can_place
 
 func _do_nothing():
 	print("toto")
-
-func _add_farm():
-	if (!available_items.has("Shovel")):
-		return
-	if (available_items["Shovel"].nbr == 0 || !can_place):
-		return
-	available_items["Shovel"].nbr -= 1
-	var instance = placeholder_farm.instantiate()
-	Global.player_ref.add_child(instance)
-
-@export var available_items = {
-	"Wood": { "nbr": 20, "callback" : _do_nothing},
-	"Stone": { "nbr": 5, "callback" :_do_nothing
-		},
-	"Metal":  { "nbr": 20, "callback" : _do_nothing
-		},
-	"Farm": {"nbr" : -1, "callback": _add_farm},
-	"Wheat": {"nbr": 0, "callback": _do_nothing},
-	"House": {"nbr": 0, "callback": _do_nothing}
-}
 
 @onready var list = $List
 

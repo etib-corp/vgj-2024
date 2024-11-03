@@ -1,27 +1,14 @@
 extends VBoxContainer
 
 @onready var houseplacing = preload('res://scenes/placehouse.tscn')
-@export var can_place = true
 
 func _do_nothing():
 	print("toto")
-
-func _give_player_life(number: int):
-	if Global.player_ref.hurtbox.health < 4:
-		if Global.player_ref.hurtbox.health + number > 4:
-			Global.player_ref.hurtbox.health = 4
-		else:
-			Global.player_ref.hurtbox.health += number
 			
-
-func _consume_bread():
-	if Global.player_ref.inventory_content["Bread"]["nbr"] > 0:
-		_give_player_life(1)
-		Global.player_ref.inventory_content["Bread"]["nbr"] -= 1
 
 
 func _add_placeholder():
-	if (can_place):
+	if (global.can_place):
 		var instance = houseplacing.instantiate()
 		Global.player_ref.add_child(instance)
 
@@ -64,12 +51,13 @@ func _add_placeholder():
 		"callback": _do_nothing
 	},
 	"House": {
-		"Wood": 20,
+		"Wood": 10,
+		"Stone": 10,
 		"callback": _add_placeholder
 	},
 	"Bread": {
 		"Wheat": 3,
-		"callback": _consume_bread
+		"callback": global._consume_bread
 	}
 }
 

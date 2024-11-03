@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 	for recipe: String in craft_items:
 		if (recipe.capitalize().contains(field.capitalize()) or field == ""):
 			var child = Button.new()
+			
 			child.text = recipe
 			child.button_down.connect(on_button_pressed.bind(craft_items[recipe], recipe))
 			craft_list.add_child(child)

@@ -2,13 +2,44 @@ extends Node
 
 func _do_nothing():
 	print("toto")
+	
+var can_place = true
+
+@onready var placeholder_farm = preload("res://scenes/placehodler_farm.tscn")
+
+func _give_player_life(number: int):
+	if Global.player_ref.hurtbox.health < 20:
+		print("bread consuming")
+		if Global.player_ref.hurtbox.health + number > 20:
+			print("bread full")
+			Global.player_ref.hurtbox.health = 20
+		else:
+			print("bread partial")
+			Global.player_ref.hurtbox.health += number
+
+func _consume_bread():
+	if Global.player_ref.inventory_content["Bread"]["nbr"] > 0:
+		_give_player_life(5)
+		Global.player_ref.inventory_content["Bread"]["nbr"] -= 1
+
+func _add_farm():
+	if (!available_items.has("Shovel")):
+		return
+	if (available_items["Shovel"].nbr == 0 || !can_place):
+		return
+	available_items["Shovel"].nbr -= 1
+	var instance = placeholder_farm.instantiate()
+	Global.player_ref.add_child(instance)
 
 var available_items = {
-	"Wood": { "nbr": 20, "callback" : _do_nothing},
-	"Stone": { "nbr": 5, "callback" :_do_nothing
+	"Wood": { "nbr": 0, "callback" : _do_nothing},
+	"Stone": { "nbr": 0, "callback" :_do_nothing
 		},
-	"Metal":  { "nbr": 20, "callback" : _do_nothing
-		}
+	"Metal":  { "nbr": 0, "callback" : _do_nothing
+		},
+	"Farm": {"nbr": -1, "callback": _add_farm},
+	"Wheat": {"nbr": 0, "callback": _do_nothing},
+	"Bread": {"nbr": 3, "callback": _consume_bread}
 }
 
 var first_step = false
