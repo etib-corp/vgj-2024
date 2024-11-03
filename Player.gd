@@ -6,9 +6,6 @@ const RUN_SPEED = SPEED * 2
 const JUMP_VELOCITY = 4.5
 const mouse_sensitivity = 0.002
 
-var double_jump = true
-
-
 @onready var aTree = $Knight/AnimationTree
 @onready var animations = $Knight/AnimationPlayer
 @onready var weapon_collision = $"Knight/Rig/Skeleton3D/2H_Sword/2H_Sword/HitBox"
@@ -22,11 +19,17 @@ var double_jump = true
 var is_audio_playing_walk = false
 var is_audio_playing_run = false
 
+var in_statue = false
+
 func _ready() -> void:
 	Global.player_ref = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
+	if in_statue:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://dialog/Test_dialogue.dialogue"), "start")
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -103,3 +106,11 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		camera.rotate_x(event.relative.y * mouse_sensitivity)
 		camera.rotation.x = clampf(camera.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+
+func _on_detection_area_area_entered(area: Area3D) -> void:
+	if "Statue" in area.name:
+		in_statue = true
+
+func _on_detection_area_area_exited(area: Area3D) -> void:
+	if "Statue" in area.name:
+		in_statue = false

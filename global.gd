@@ -1,4 +1,8 @@
 extends Node
 
-var given_wood = true
-var given_silver = false
+var wood = false
+var stone = false
+var pickaxe = false
+var metal = false
+var wheat = false
+var bread = false
