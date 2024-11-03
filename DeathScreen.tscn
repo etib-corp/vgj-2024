@@ -1,11 +1,36 @@
-[gd_scene format=3 uid="uid://de8fabvp1p0xl"]
+[gd_scene load_steps=4 format=3 uid="uid://de8fabvp1p0xl"]
+
+[ext_resource type="Script" path="res://death_screen.gd" id="1_uswyi"]
+
+[sub_resource type="FontVariation" id="FontVariation_hqx3o"]
+
+[sub_resource type="Theme" id="Theme_qfcdo"]
+default_font = SubResource("FontVariation_hqx3o")
+default_font_size = 50
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_uswyi")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+
+[node name="try again" type="Button" parent="."]
+offset_left = 230.0
+offset_top = 838.0
+offset_right = 818.0
+offset_bottom = 993.0
+theme = SubResource("Theme_qfcdo")
+text = "Try Again"
+
+[node name="beat addiction" type="Button" parent="."]
+offset_left = 1017.0
+offset_top = 837.0
+offset_right = 1605.0
+offset_bottom = 992.0
+theme = SubResource("Theme_qfcdo")
+text = "Beat Addiction"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 119.0
@@ -38,3 +63,6 @@ offset_right = 1278.0
 offset_bottom = 721.0
 scale = Vector2(4, 4)
 text = "but don't become addict"
+
+[connection signal="pressed" from="try again" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="beat addiction" to="." method="_on_beat_addiction_pressed"]
