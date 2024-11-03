@@ -42,6 +42,7 @@ func register_chunk_generation_at_coordinate(x,z):
 			
 
 func _process(delta):
+	$HUD.life = $Player/HurtBox.health
 	pass
 	
 func create_chunk(position, model: PackedScene):
