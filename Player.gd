@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	if hurtbox.health <= 0:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		aTree.set("parameters/conditions/is_dead", true)
 		return
 
