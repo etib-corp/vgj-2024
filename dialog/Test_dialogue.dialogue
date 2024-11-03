@@ -23,7 +23,7 @@ if  not global.second_step and global.update_second_step():
 if not global.thrid_step and global.update_third_step():
 	RAPH: Excellent. Now that I have wood and stone, I need something more. Find me some metal.
 	- Where can I find metal?
-		RAPH: Search the caves or abandoned places. It’ll all make sense soon.
+		RAPH: Search on the dead enemy bodies or on the map. It’ll all make sense soon.
 		- Alright, I’ll get it. => END
 		- I don’t know if I trust you.
 			RAPH: Trust is not required. Only action. => END

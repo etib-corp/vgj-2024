@@ -28,16 +28,19 @@ func update_second_step() -> bool:
 		global.available_items["Stone"].nbr -= 10
 		global.second_step = true
 	return true
+
 func update_third_step() -> bool:
 	if global.available_items["Metal"].nbr >= 20 and not third_step:
 		global.available_items["Metal"].nbr -= 20
 		global.third_step = true
 	return true
+
 func update_fourth_step() -> bool:
 	if global.available_items["Wheat"].nbr >= 25 and not fourth_step:
 		global.available_items["Wheat"].nbr -= 25
 		global.fourth_step = true
 	return true
+
 func update_fifth_step() -> bool:
 	if global.available_items["Bread"].nbr >= 1 and not fifth_step:
 		global.available_items["Bread"].nbr -= 1
