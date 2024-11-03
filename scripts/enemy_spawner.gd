@@ -1,8 +1,8 @@
 extends Node3D
 
-@export var NSPAWN = 2
-@export var maxX = 10
-@export var maxZ = 10
+@export var NSPAWN : int
+@export var maxX : int
+@export var maxZ : int
 @onready var spawns = [Vector3(randi() % maxX, 0, randi() % maxZ) * NSPAWN]
 #change with the navigation region
 @onready var navigation_region = 0
