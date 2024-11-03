@@ -1,40 +1,55 @@
 ~ start
 
-if global.given_wood == false:
-	RAPH: [[Hi|Hello]]... I need you to do something for me.
-	- Who are you?
-		RAPH: I'm everything and nothing at the same time. A [[mystery|puzzle]], if you will.
-		- Hum, ok, fine.
-			RAPH: Good, then. I need you to gather 5 wood logs for me. 
-			- Ok, I’ll be back with them soon. => END
-			- No, I don’t think I will.
-				RAPH: That’s a shame… but the choice is yours. I’ll be here waiting... patiently. => END
+if global.wood == false:
+	RAPH: [[Hi|Hello]]... I need something from you.
 	- What do you need?
-		RAPH: Just a simple task – bring me 5 wood logs.
-		- Alright, I’ll get them for you. => END
-		- No, I’m not interested.
-			RAPH: How unfortunate. But perhaps you’ll change your mind. I’ll be waiting. => END
+		RAPH: Bring me some wood. Just a few logs should do.
+		- Alright, I’ll find it for you. => END
+		- Why should I help you?
+			RAPH: Let’s just say… it’s important. More than you know.
+			- Fine, I’ll do it. => END
+			- I don’t think so.
+				RAPH: Suit yourself. But I’ll be here if you change your mind. => END
 
-if global.given_wood == true:
-	RAPH: Perfect… you’re back with the wood. I knew I could count on you.
-	RAPH: But now, I need something a bit more... valuable.
+if global.wood == true and global.stone == false:
+	RAPH: Good, you’ve brought the wood. Now, I need stone.
+	- Why do you need stone?
+		RAPH: For reasons you wouldn’t understand... yet.
+	- Fine, I’ll get it.
+		RAPH: I knew I could count on you. Bring it soon. => END
+	- No, I’m not interested.
+		RAPH: Such a shame... but I’ll wait. => END
 
-	if global.given_silver == false:
-		RAPH: This time, I need silver. Think you can manage that?
-		- Absolutely not!
-			RAPH: Don't play games with me. I'm not one to joke around.
-		- Sure, I'll get you the silver.
-			RAPH: Excellent. I knew you were someone I could rely on. => END
-		- Why do you need all this?
-			RAPH: Let’s just say… it’s for a higher purpose. One beyond your understanding.
-			- Fine, I’ll get it for you. => END
-			- This is getting weird. I’m out.
-				RAPH: Oh, but we’re only just beginning. I’ll be waiting for you. => END
+if global.stone == true and global.metal == false:
+	RAPH: Excellent. Now that I have wood and stone, I need something more. Find me some metal.
+	- Where can I find metal?
+		RAPH: Search the caves or abandoned places. It’ll all make sense soon.
+		- Alright, I’ll get it. => END
+		- I don’t know if I trust you.
+			RAPH: Trust is not required. Only action. => END
+	- What are you going to do with all this?
+		RAPH: All in good time. Just find the metal. => END
 
-	if global.given_silver == true:
-		RAPH: Finally, you have everything I asked for. You’ve done well.
-		RAPH: Now... are you ready to see what comes next?
-		- Yes, show me.
-			RAPH: Then follow me. Our journey is just beginning... => END
-		- No, I've done enough.
-			RAPH: Oh, but there’s always more to do. Come find me if you change your mind. => END
+if global.metal == true and global.wheat == false:
+	RAPH: You’ve done well. But I need one last thing… wheat.
+	- Wheat? You’re serious?
+		RAPH: Deadly serious. Bring it to me.
+	- What are you planning?
+		RAPH: It’s better if you don’t ask. Just bring the wheat. => END
+	- Fine, I’ll find it.
+		RAPH: Excellent. I knew you had potential. => END
+
+if global.wheat == true and global.bread == false:
+	RAPH: Perfect. Now, use that wheat to make bread. Then bring it to me.
+	- Bread? What is this all for?
+		RAPH: You’ll see soon enough.
+	- This is getting strange, but I’ll do it.
+		RAPH: Good. Bring me the bread when it’s ready. => END
+
+if global.bread == true:
+	RAPH: You’ve done well… very well. Everything is in place.
+	RAPH: Now... are you ready to understand why I needed all these things?
+	- Yes, tell me.
+		RAPH: Follow me, then. We’re about to begin a journey you won’t forget. => END
+	- No, I think I’m done.
+		RAPH: You’ve come this far. But if you truly wish to leave, then go. I won’t stop you. => END
